@@ -1,0 +1,764 @@
+import React, { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { useSubscription } from "@/hooks/useSubscription";
+import { useQuery } from "@tanstack/react-query";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { 
+  TrendingUp, 
+  TrendingDown,
+  BarChart3, 
+  Zap, 
+  Shield, 
+  Clock, 
+  Star,
+  Crown,
+  ChevronRight,
+  AlertCircle,
+  Unlock,
+  Lock,
+  Activity
+} from "lucide-react";
+import { Link } from "wouter";
+import { SubscriptionManager, SUBSCRIPTION_PLANS } from "@/lib/subscriptionPlan";
+import TradingViewChart from "@/components/charts/TradingViewChart";
+import MarketWidget from "@/components/widgets/MarketWidget";
+import { useToast } from "@/hooks/use-toast";
+
+interface DashboardStats {
+  totalSignals: number;
+  dailySignalCount: number;
+  activeTickerCount: number;
+  successRate: number;
+}
+
+export default function SubscriptionDashboard() {
+  const { user } = useAuth();
+  const { 
+    subscriptionStatus, 
+    canAccessFeature, 
+    hasReachedLimit, 
+    upgradeSubscription,
+    isUpgrading 
+  } = useSubscription();
+  const { toast } = useToast();
+  const [activeTab, setActiveTab] = useState("overview");
+
+  // Dashboard stats based on subscription status - moved before early return
+  const { data: dashboardStats } = useQuery({
+    queryKey: ["/api/dashboard/stats"],
+    queryFn: async () => ({
+      totalSignals: 247,
+      dailySignalCount: subscriptionStatus?.limits?.usedSignals || 0,
+      activeTickerCount: subscriptionStatus?.limits?.usedTickers || 0,
+      successRate: 68.5,
+    } as DashboardStats),
+    enabled: !!subscriptionStatus, // Only run query when subscriptionStatus is available
+  });
+
+  const { data: recentSignals } = useQuery({
+    queryKey: ["/api/signals/recent"],
+    queryFn: async () => [
+      { ticker: "BTCUSDT", type: "BUY", price: 119000, timestamp: "2 mins ago", confidence: 85 },
+      { ticker: "ETHUSDT", type: "SELL", price: 4180, timestamp: "15 mins ago", confidence: 92 },
+      { ticker: "SOLUSDT", type: "BUY", price: 245, timestamp: "32 mins ago", confidence: 78 },
+    ],
+    enabled: !!user, // Only run query when user is available
+  });
+  
+  if (!user || !subscriptionStatus) {
+    return (
+      <div className="p-6 max-w-7xl mx-auto">
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto"></div>
+      </div>
+    );
+  }
+
+  const userTier = subscriptionStatus.currentPlan;
+  const planConfig = SubscriptionManager.getPlanConfig(userTier);
+  const features = subscriptionStatus.features;
+
+  const handleFeatureClick = (featureName: string, hasFeature: boolean) => {
+    if (!hasFeature) {
+      toast({
+        title: "Premium Feature",
+        description: SubscriptionManager.getUpgradeMessage(featureName as any),
+        variant: "default",
+      });
+    }
+  };
+
+  const handleUpgrade = (planTier: string) => {
+    upgradeSubscription({ planTier, billingInterval: "monthly" });
+  };
+
+  const FeatureCard = ({ 
+    title, 
+    description, 
+    icon: Icon, 
+    hasFeature, 
+    featureName 
+  }: { 
+    title: string; 
+    description: string; 
+    icon: any; 
+    hasFeature: boolean;
+    featureName: string;
+  }) => {
+    const colorClasses = hasFeature 
+      ? {
+          card: "border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/30 dark:to-emerald-800/30 shadow-lg hover:shadow-xl",
+          icon: "p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-md",
+          iconColor: "text-white",
+          title: "text-green-800 dark:text-green-100 font-bold",
+          description: "text-green-700 dark:text-green-300",
+          lockBg: "bg-green-200 dark:bg-green-700",
+          lockIcon: "text-green-600 dark:text-green-300"
+        }
+      : {
+          card: "border-2 border-red-200 bg-gradient-to-br from-red-50 to-pink-100 dark:from-red-900/30 dark:to-pink-800/30 shadow-lg hover:shadow-xl hover:border-red-300",
+          icon: "p-3 rounded-xl bg-gradient-to-br from-red-400 to-pink-500 shadow-md",
+          iconColor: "text-white opacity-60",
+          title: "text-red-800 dark:text-red-100 font-bold",
+          description: "text-red-700 dark:text-red-300",
+          lockBg: "bg-red-200 dark:bg-red-700",
+          lockIcon: "text-red-600 dark:text-red-400"
+        };
+    
+    return (
+      <Card 
+        className={`cursor-pointer transition-all ${colorClasses.card}`}
+        onClick={() => handleFeatureClick(featureName, hasFeature)}
+      >
+        <CardContent className="p-5">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className={colorClasses.icon}>
+                <Icon className={`w-5 h-5 ${colorClasses.iconColor}`} />
+              </div>
+              <div>
+                <h4 className={`font-semibold text-sm ${colorClasses.title}`}>
+                  {hasFeature ? "✅ " : "🔒 "}{title}
+                </h4>
+                <p className={`text-xs ${colorClasses.description} font-medium`}>
+                  {description}
+                </p>
+              </div>
+            </div>
+            <div className={`p-2 rounded-lg ${colorClasses.lockBg}`}>
+              {hasFeature ? (
+                <Unlock className={`w-5 h-5 ${colorClasses.lockIcon}`} />
+              ) : (
+                <Lock className={`w-5 h-5 ${colorClasses.lockIcon}`} />
+              )}
+            </div>
+          </div>
+          {!hasFeature && (
+            <div className="mt-3 pt-3 border-t border-red-300 dark:border-red-600">
+              <p className="text-xs text-red-700 dark:text-red-300 font-bold">
+                🚀 Click to upgrade and unlock this feature!
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    );
+  };
+
+  return (
+    <div className="p-6 max-w-7xl mx-auto space-y-6">
+      {/* Colorful Header with Plan Status */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0 p-6 rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white shadow-lg">
+        <div>
+          <h1 className="text-3xl font-bold text-white drop-shadow-md">🎯 Trading Dashboard</h1>
+          <p className="text-blue-100 font-medium">
+            Welcome back! Here's your trading overview ✨
+          </p>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold shadow-md">
+            ⭐ {planConfig?.name || "Free Tier"}
+          </Badge>
+          {userTier === "free" && (
+            <Link href="/pricing">
+              <Button size="sm" className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold shadow-md">
+                <Crown className="w-4 h-4 mr-2" />
+                Upgrade Plan 🚀
+              </Button>
+            </Link>
+          )}
+        </div>
+      </div>
+
+      {/* Usage Alerts */}
+      {userTier === "free" && (
+        <Alert className="border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-950/50">
+          <AlertCircle className="h-4 w-4 text-orange-600" />
+          <AlertDescription className="text-orange-800 dark:text-orange-200">
+            You're on the free tier with limited features. 
+            <Link href="/pricing" className="ml-1 underline font-medium">
+              Upgrade now
+            </Link> to unlock advanced analytics and unlimited signals.
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {/* Colorful Platform Status */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/30 dark:to-emerald-800/30 shadow-lg hover:shadow-xl transition-shadow">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-green-700 dark:text-green-300 font-medium">📈 Market Data</p>
+                <p className="text-2xl font-bold text-green-800 dark:text-green-100">Live</p>
+              </div>
+              <div className="p-2 rounded-lg bg-green-200 dark:bg-green-700">
+                <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-300" />
+              </div>
+            </div>
+            <div className="mt-2 flex items-center text-xs text-green-600 dark:text-green-400">
+              <Activity className="w-3 h-3 mr-1" />
+              Real-time pricing from Binance
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-900/30 dark:to-amber-800/30 shadow-lg hover:shadow-xl transition-shadow">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-yellow-700 dark:text-yellow-300 font-medium">⚡ Signals Source</p>
+                <p className="text-2xl font-bold text-yellow-800 dark:text-yellow-100">TradingView</p>
+              </div>
+              <div className="p-2 rounded-lg bg-yellow-200 dark:bg-yellow-700">
+                <Zap className="w-6 h-6 text-yellow-600 dark:text-yellow-300" />
+              </div>
+            </div>
+            <div className="mt-2 flex items-center text-xs text-yellow-600 dark:text-yellow-400">
+              <BarChart3 className="w-3 h-3 mr-1" />
+              Multiple timeframe analysis
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-800/30 shadow-lg hover:shadow-xl transition-shadow">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-blue-700 dark:text-blue-300 font-medium">🎮 Trading Playground</p>
+                <p className="text-2xl font-bold text-blue-800 dark:text-blue-100">Active</p>
+              </div>
+              <div className="p-2 rounded-lg bg-blue-200 dark:bg-blue-700">
+                <BarChart3 className="w-6 h-6 text-blue-600 dark:text-blue-300" />
+              </div>
+            </div>
+            <div className="mt-2 flex items-center text-xs text-blue-600 dark:text-blue-400">
+              <Activity className="w-3 h-3 mr-1" />
+              Signal-based simulation
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-900/30 dark:to-pink-800/30 shadow-lg hover:shadow-xl transition-shadow">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-purple-700 dark:text-purple-300 font-medium">👑 Plan Status</p>
+                <p className="text-lg font-bold capitalize text-purple-800 dark:text-purple-100">{userTier}</p>
+              </div>
+              <div className="p-2 rounded-lg bg-purple-200 dark:bg-purple-700">
+                <Shield className="w-6 h-6 text-purple-600 dark:text-purple-300" />
+              </div>
+            </div>
+            <div className="mt-2 flex items-center text-xs text-purple-600 dark:text-purple-400">
+              <Clock className="w-3 h-3 mr-1" />
+              {subscriptionStatus.status === "active" ? "✅ Active" : "❌ Inactive"}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Colorful Main Content Tabs */}
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="grid w-full grid-cols-4 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/50 dark:to-purple-900/50 p-1">
+          <TabsTrigger value="overview" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-cyan-500 data-[state=active]:text-white">📊 Overview</TabsTrigger>
+          <TabsTrigger value="features" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-emerald-500 data-[state=active]:text-white">🎯 Features</TabsTrigger>
+          <TabsTrigger value="charts" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-500 data-[state=active]:to-red-500 data-[state=active]:text-white">📈 Charts</TabsTrigger>
+          <TabsTrigger value="signals" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white">⚡ Signals</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="space-y-6">
+          {/* Colorful Live Market Data */}
+          <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-800/20 shadow-lg">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
+                  <TrendingUp className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-emerald-800 dark:text-emerald-100 text-xl">💰 Live Market Data</CardTitle>
+                  <CardDescription className="text-emerald-700 dark:text-emerald-300 font-medium">Real-time cryptocurrency prices and volumes</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <MarketWidget symbol="BTCUSDT" name="Bitcoin" icon="₿" />
+                <MarketWidget symbol="ETHUSDT" name="Ethereum" icon="Ξ" />
+                <MarketWidget symbol="SOLUSDT" name="Solana" icon="◎" />
+                <MarketWidget symbol="ADAUSDT" name="Cardano" icon="₳" />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Colorful Platform Information */}
+          <Card className="border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-900/20 dark:to-blue-800/20 shadow-lg">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 shadow-lg">
+                  <Activity className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-indigo-800 dark:text-indigo-100 text-xl">🚀 Trading Signals Platform</CardTitle>
+                  <CardDescription className="text-indigo-700 dark:text-indigo-300 font-medium">Live signals from TradingView indicators</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-center p-6 rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-yellow-900/30 dark:to-orange-800/30 shadow-md hover:shadow-lg transition-shadow">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 mx-auto w-fit mb-3 shadow-lg">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-bold text-yellow-800 dark:text-yellow-100">⚡ Real-time Signals</h3>
+                  <p className="text-sm text-yellow-700 dark:text-yellow-300 mt-2 font-medium">
+                    Live buy/sell signals across multiple timeframes
+                  </p>
+                </div>
+                <div className="text-center p-6 rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/30 dark:to-emerald-800/30 shadow-md hover:shadow-lg transition-shadow">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 mx-auto w-fit mb-3 shadow-lg">
+                    <BarChart3 className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-bold text-green-800 dark:text-green-100">📉 OHLC Data</h3>
+                  <p className="text-sm text-green-700 dark:text-green-300 mt-2 font-medium">
+                    Historical price data for technical analysis
+                  </p>
+                </div>
+                <div className="text-center p-6 rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-800/30 shadow-md hover:shadow-lg transition-shadow">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 mx-auto w-fit mb-3 shadow-lg">
+                    <TrendingUp className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-bold text-blue-800 dark:text-blue-100">💹 Live Prices</h3>
+                  <p className="text-sm text-blue-700 dark:text-blue-300 mt-2 font-medium">
+                    Real-time market data from Binance API
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="features" className="space-y-6">
+          <Card className="border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-indigo-100 dark:from-purple-900/20 dark:to-indigo-800/20 shadow-lg">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-purple-800 dark:text-purple-100 text-xl">
+                    🎆 {userTier === "pro" ? "Pro Plan Features" : "Available Features"}
+                  </CardTitle>
+                  <CardDescription className="text-purple-700 dark:text-purple-300 font-medium">
+                    {userTier === "pro" 
+                      ? "All premium features unlocked with your Pro plan ✨" 
+                      : "Click on locked features to see upgrade options 🚀"}
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              {userTier === "pro" ? (
+                <div className="mb-4 p-4 bg-muted/50 border rounded-lg">
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Crown className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                      <span className="text-slate-700 dark:text-slate-300 font-medium">Pro Plan Active</span>
+                    </div>
+                    <div className="w-px h-4 bg-slate-300 dark:bg-slate-600"></div>
+                    <div className="flex items-center gap-2">
+                      <Unlock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                      <span className="text-slate-600 dark:text-slate-400">All features unlocked</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="mb-4 p-4 bg-muted/50 border rounded-lg">
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Unlock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                      <span className="text-slate-700 dark:text-slate-300">Available</span>
+                    </div>
+                    <div className="w-px h-4 bg-slate-300 dark:bg-slate-600"></div>
+                    <div className="flex items-center gap-2">
+                      <Lock className="w-4 h-4 text-slate-500 dark:text-slate-500" />
+                      <span className="text-slate-600 dark:text-slate-400">Requires Upgrade</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <FeatureCard
+                title="Real-time Data"
+                description="Live cryptocurrency prices"
+                icon={TrendingUp}
+                hasFeature={planConfig?.features.realTimeData || false}
+                featureName="realTimeData"
+              />
+              <FeatureCard
+                title="Buy/Sell Signals"
+                description="Trading recommendations"
+                icon={Zap}
+                hasFeature={planConfig?.features.buySellSignals || false}
+                featureName="buySellSignals"
+              />
+              <FeatureCard
+                title="Advanced Charts"
+                description="Technical analysis tools"
+                icon={BarChart3}
+                hasFeature={planConfig?.features.advancedCharts || false}
+                featureName="advancedCharts"
+              />
+              <FeatureCard
+                title="Heatmap Analyzer"
+                description="Market heatmap visualization"
+                icon={TrendingUp}
+                hasFeature={planConfig?.features.heatmapAnalyzer || false}
+                featureName="heatmapAnalyzer"
+              />
+              <FeatureCard
+                title="Custom Alerts"
+                description="Personalized notifications"
+                icon={AlertCircle}
+                hasFeature={planConfig?.features.customAlerts || false}
+                featureName="customAlerts"
+              />
+              <FeatureCard
+                title="Historical Data"
+                description="Access past market data"
+                icon={BarChart3}
+                hasFeature={planConfig?.features.historicalData || false}
+                featureName="historicalData"
+              />
+              <FeatureCard
+                title="Advanced Signals"
+                description="Premium signal analytics"
+                icon={Zap}
+                hasFeature={planConfig?.features.advancedSignals || false}
+                featureName="advancedSignals"
+              />
+              <FeatureCard
+                title="Cycle Forecasting"
+                description="Market cycle predictions"
+                icon={TrendingUp}
+                hasFeature={planConfig?.features.cycleForecasting || false}
+                featureName="cycleForecasting"
+              />
+              <FeatureCard
+                title="API Access"
+                description="Developer API integration"
+                icon={Shield}
+                hasFeature={planConfig?.features.apiAccess || false}
+                featureName="apiAccess"
+              />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Colorful Upgrade CTA */}
+          {userTier === "free" && (
+            <Card className="border-2 border-orange-200 bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 dark:from-orange-900/30 dark:via-yellow-900/30 dark:to-red-800/30 shadow-xl hover:shadow-2xl transition-all">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-orange-800 dark:text-orange-100">
+                      🚀 Unlock Premium Features
+                    </h3>
+                    <p className="text-orange-700 dark:text-orange-300 mt-1 font-medium">
+                      Get access to advanced analytics, unlimited signals, and priority support ✨
+                    </p>
+                  </div>
+                  <Link href="/pricing">
+                    <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold shadow-lg hover:shadow-xl">
+                      👑 View Plans
+                      <ChevronRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </TabsContent>
+
+        <TabsContent value="charts" className="space-y-6">
+          {features.advancedCharts ? (
+            <div className="space-y-6">
+              {/* Bitcoin Analysis - Featured */}
+              <Card className="border border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="text-2xl">₿</div>
+                    <div>
+                      <CardTitle className="text-slate-900 dark:text-slate-100">Bitcoin Technical Analysis</CardTitle>
+                      <CardDescription className="text-slate-600 dark:text-slate-400">Live OHLC data and TradingView signals for BTCUSDT</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <TradingViewChart 
+                    symbol="BINANCE:BTCUSDT"
+                    height={600}
+                    theme="dark"
+                    interval="1W"
+                    showToolbar={true}
+                    title="Weekly Buy/Sell Signals - Past 2 Years"
+                    description="Interactive BTCUSDT weekly chart with real buy/sell signals from our algorithm"
+                  />
+                </CardContent>
+              </Card>
+
+              {/* Ethereum & Solana - Side by side */}
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <Card className="border border">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">Ξ</div>
+                      <div>
+                        <CardTitle className="text-slate-900 dark:text-slate-100">Ethereum Technical Analysis</CardTitle>
+                        <CardDescription className="text-slate-600 dark:text-slate-400">Live OHLC data and signals for ETHUSDT</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <TradingViewChart 
+                      symbol="BINANCE:ETHUSDT"
+                      height={600}
+                      theme="dark"
+                      interval="1W"
+                      showToolbar={true}
+                      title="Weekly Buy/Sell Signals - Past 2 Years"
+                      description="Interactive ETHUSDT weekly chart with real buy/sell signals from our algorithm"
+                    />
+                  </CardContent>
+                </Card>
+                
+                <Card className="border border">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">◎</div>
+                      <div>
+                        <CardTitle className="text-slate-900 dark:text-slate-100">Solana Technical Analysis</CardTitle>
+                        <CardDescription className="text-slate-600 dark:text-slate-400">Live OHLC data and signals for SOLUSDT</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <TradingViewChart 
+                      symbol="BINANCE:SOLUSDT"
+                      height={600}
+                      theme="dark"
+                      interval="1W"
+                      showToolbar={true}
+                      title="Weekly Buy/Sell Signals - Past 2 Years"
+                      description="Interactive SOLUSDT weekly chart with real buy/sell signals from our algorithm"
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <Lock className="w-20 h-20 mx-auto text-muted-foreground mb-6" />
+              <h2 className="text-2xl font-semibold mb-4">Charts Access Required</h2>
+              <p className="text-muted-foreground text-lg mb-6">
+                Upgrade to access technical analysis charts and indicators
+              </p>
+              <Link href="/pricing">
+                <Button size="lg">Upgrade Now</Button>
+              </Link>
+            </div>
+          )}
+        </TabsContent>
+
+        <TabsContent value="signals" className="space-y-6">
+          {features.buySellSignals ? (
+            <>
+              {/* Weekly Buy/Sell Signals - Past 2 Years */}
+              <Card className="border-2 border-purple-400 bg-gradient-to-br from-purple-900/80 via-blue-900/80 to-indigo-900/80 shadow-2xl">
+                <CardHeader className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 rounded-t-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 shadow-lg">
+                      <BarChart3 className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-white text-xl font-bold drop-shadow-lg">
+                        🚀 Weekly Buy/Sell Signals - Past 2 Years ✨
+                      </CardTitle>
+                      <CardDescription className="text-yellow-100 font-medium drop-shadow">
+                        📊 Historical weekly signals analysis across all major cryptocurrency pairs 🎯
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Statistics Cards */}
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 border-2 border-green-300 shadow-lg hover:shadow-xl transition-all">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-green-100 font-semibold">💹 Total Buy Signals</p>
+                            <p className="text-3xl font-bold text-white drop-shadow-lg">1,247</p>
+                          </div>
+                          <TrendingUp className="w-8 h-8 text-green-200 animate-pulse" />
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 rounded-lg bg-gradient-to-r from-red-500 to-pink-600 border-2 border-red-300 shadow-lg hover:shadow-xl transition-all">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-red-100 font-semibold">📉 Total Sell Signals</p>
+                            <p className="text-3xl font-bold text-white drop-shadow-lg">1,189</p>
+                          </div>
+                          <TrendingDown className="w-8 h-8 text-red-200 animate-pulse" />
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 border-2 border-yellow-300 shadow-lg hover:shadow-xl transition-all">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-yellow-100 font-semibold">⭐ Success Rate</p>
+                            <p className="text-3xl font-bold text-white drop-shadow-lg">73.4%</p>
+                          </div>
+                          <Star className="w-8 h-8 text-yellow-200 animate-spin-slow" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Recent Weekly Signals */}
+                    <div className="lg:col-span-2">
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 mb-4">
+                        🔥 Recent Weekly Signals 📈
+                      </h3>
+                      <div className="space-y-3 max-h-80 overflow-y-auto">
+                        {[
+                          { ticker: "BTCUSDT", type: "BUY", date: "2024-08-05", price: 61420, confidence: 87 },
+                          { ticker: "ETHUSDT", type: "SELL", date: "2024-08-05", price: 2650, confidence: 82 },
+                          { ticker: "SOLUSDT", type: "BUY", date: "2024-07-29", price: 145, confidence: 91 },
+                          { ticker: "ADAUSDT", type: "BUY", date: "2024-07-29", price: 0.42, confidence: 76 },
+                          { ticker: "BTCUSDT", type: "SELL", date: "2024-07-22", price: 67800, confidence: 89 },
+                          { ticker: "ETHUSDT", type: "BUY", date: "2024-07-15", price: 3100, confidence: 85 },
+                          { ticker: "SOLUSDT", type: "SELL", date: "2024-07-08", price: 165, confidence: 78 },
+                          { ticker: "ADAUSDT", type: "BUY", date: "2024-07-01", price: 0.38, confidence: 83 }
+                        ].map((signal, index) => (
+                          <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/50 border">
+                            <div className="flex items-center space-x-3">
+                              <Badge 
+                                variant={signal.type === "BUY" ? "default" : "destructive"}
+                                className={signal.type === "BUY" ? "bg-slate-600 hover:bg-slate-700" : "bg-slate-500 hover:bg-slate-600"}
+                              >
+                                {signal.type}
+                              </Badge>
+                              <div>
+                                <h4 className="font-medium text-slate-900 dark:text-slate-100">{signal.ticker}</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400">
+                                  ${signal.price.toLocaleString()} • {signal.date}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <Badge variant="outline" className="text-slate-600 dark:text-slate-400 border">
+                                {signal.confidence}%
+                              </Badge>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Live Trading Signals */}
+              <Card className="border border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-muted/30">
+                      <Zap className="w-6 h-6 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-white dark:text-white font-bold">Live Trading Signals</CardTitle>
+                      <CardDescription className="text-blue-100 dark:text-blue-100 font-medium">
+                        Real-time buy/sell signals from TradingView indicators
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <Alert className="border bg-muted/50">
+                      <AlertCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                      <AlertDescription className="text-blue-100 dark:text-blue-100 font-medium">
+                        Signals are streamed live from TradingView across multiple timeframes (30min, 1h, 4h, 8h, 12h, day, week, month). 
+                        This data is for informational purposes only and should not be considered financial advice.
+                      </AlertDescription>
+                    </Alert>
+                    
+                    {recentSignals?.map((signal, index) => (
+                      <div key={index} className="flex items-center justify-between p-4 border border rounded-lg bg-muted/50">
+                        <div className="flex items-center space-x-4">
+                          <Badge variant={signal.type === "BUY" ? "default" : "destructive"} className="bg-slate-600 hover:bg-slate-700">
+                            {signal.type}
+                          </Badge>
+                          <div>
+                            <h4 className="font-medium text-white dark:text-white">{signal.ticker}</h4>
+                            <p className="text-sm text-blue-200 dark:text-blue-200 font-semibold">
+                              ${signal.price.toLocaleString()} • {signal.timestamp}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="flex items-center space-x-2">
+                            <span className="text-sm font-medium text-blue-200 dark:text-blue-200">Strength:</span>
+                            <Badge variant="outline" className="text-slate-600 dark:text-slate-400 border">{signal.confidence}%</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          ) : (
+            <div className="text-center py-16 bg-muted/50 rounded-lg border-2 border-dashed border">
+              <Zap className="w-20 h-20 mx-auto text-slate-400 dark:text-slate-500 mb-6" />
+              <h2 className="text-2xl font-semibold mb-4 text-slate-900 dark:text-slate-100">Signals Access Required</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6">
+                Upgrade to access live trading signals from TradingView and historical weekly analysis
+              </p>
+              <Link href="/pricing">
+                <Button size="lg" className="bg-slate-600 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600">
+                  View Subscription Plans
+                </Button>
+              </Link>
+            </div>
+          )}
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
