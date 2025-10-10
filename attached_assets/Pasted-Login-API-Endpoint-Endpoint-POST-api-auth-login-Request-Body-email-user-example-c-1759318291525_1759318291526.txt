@@ -1,0 +1,111 @@
+Login API Endpoint
+Endpoint: POST /api/auth/login
+
+Request Body:
+
+{
+  "email": "user@example.com",
+  "password": "password123"
+}
+Response JSON Examples by User Type
+1. Admin User JSON Response
+{
+  "user": {
+    "id": "admin_123",
+    "email": "admin@example.com",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "admin",
+    "subscriptionTier": "elite",
+    "subscriptionStatus": "active",
+    "isActive": true,
+    "stripeCustomerId": "cus_xxxxx",
+    "stripeSubscriptionId": "sub_xxxxx",
+    "subscriptionEndsAt": "2026-10-01T00:00:00Z",
+    "lastLoginAt": "2025-10-01T10:30:00Z",
+    "createdAt": "2024-01-15T10:00:00Z"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+2. Normal User (Admin Role) JSON Response
+{
+  "user": {
+    "id": "user_456",
+    "email": "normaladmin@example.com",
+    "firstName": "Normal",
+    "lastName": "Admin",
+    "role": "admin",
+    "subscriptionTier": "pro",
+    "subscriptionStatus": "active",
+    "isActive": true,
+    "stripeCustomerId": "cus_yyyyy",
+    "stripeSubscriptionId": "sub_yyyyy",
+    "subscriptionEndsAt": "2026-05-01T00:00:00Z",
+    "lastLoginAt": "2025-10-01T09:15:00Z",
+    "createdAt": "2024-03-20T14:30:00Z"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+3. Elite/Pro User JSON Response
+{
+  "user": {
+    "id": "user_789",
+    "email": "eliteuser@example.com",
+    "firstName": "Elite",
+    "lastName": "User",
+    "role": "user",
+    "subscriptionTier": "elite",
+    "subscriptionStatus": "active",
+    "isActive": true,
+    "stripeCustomerId": "cus_elite123",
+    "stripeSubscriptionId": "sub_elite123",
+    "subscriptionEndsAt": "2026-12-01T00:00:00Z",
+    "lastLoginAt": "2025-10-01T11:00:00Z",
+    "createdAt": "2024-06-10T08:00:00Z"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+4. Basic User JSON Response
+{
+  "user": {
+    "id": "user_101",
+    "email": "basicuser@example.com",
+    "firstName": "Basic",
+    "lastName": "User",
+    "role": "user",
+    "subscriptionTier": "basic",
+    "subscriptionStatus": "active",
+    "isActive": true,
+    "stripeCustomerId": "cus_basic456",
+    "stripeSubscriptionId": "sub_basic456",
+    "subscriptionEndsAt": "2025-11-01T00:00:00Z",
+    "lastLoginAt": "2025-10-01T08:45:00Z",
+    "createdAt": "2025-05-15T12:00:00Z"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+5. Premium User JSON Response
+{
+  "user": {
+    "id": "user_202",
+    "email": "premiumuser@example.com",
+    "firstName": "Premium",
+    "lastName": "User",
+    "role": "user",
+    "subscriptionTier": "premium",
+    "subscriptionStatus": "active",
+    "isActive": true,
+    "stripeCustomerId": "cus_premium789",
+    "stripeSubscriptionId": "sub_premium789",
+    "subscriptionEndsAt": "2026-02-01T00:00:00Z",
+    "lastLoginAt": "2025-10-01T07:30:00Z",
+    "createdAt": "2024-08-22T16:45:00Z"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+Key Fields Explanation:
+role: Either "admin" or "user"
+subscriptionTier: "free", "basic", "premium", "pro", or "elite"
+subscriptionStatus: "active", "canceled", "past_due", "trialing", or "incomplete"
+token: JWT authentication token used for subsequent API requests
+The main difference between user types is determined by the combination of role and subscriptionTier fields in the response.
