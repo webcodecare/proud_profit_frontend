@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <script>
+      // Fix for Google OAuth redirect URL mismatch
+      const currentUrl = window.location.href;
+      const correctUrl = currentUrl.replace("localhost:3000", "localhost:5173");
+
+      if (currentUrl !== correctUrl) {
+        console.log("Redirecting from:", currentUrl);
+        console.log("Redirecting to:", correctUrl);
+        window.location.href = correctUrl;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>

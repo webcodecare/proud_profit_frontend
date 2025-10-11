@@ -1,0 +1,1463 @@
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+f @ index-BcPjQLZ_.js:291
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:291 Error fetching BTC price: TypeError: Failed to fetch
+    at f (index-BcPjQLZ_.js:291:24352)
+    at index-BcPjQLZ_.js:291:24588
+    at ol (react-vendor-DRd396Ms.js:32:24177)
+    at Xt (react-vendor-DRd396Ms.js:32:42061)
+    at Ii (react-vendor-DRd396Ms.js:32:36399)
+    at pt (react-vendor-DRd396Ms.js:30:3258)
+    at id (react-vendor-DRd396Ms.js:32:40969)
+    at yt (react-vendor-DRd396Ms.js:32:39976)
+    at Ua (react-vendor-DRd396Ms.js:32:35511)
+    at E (react-vendor-DRd396Ms.js:17:1562)
+f @ index-BcPjQLZ_.js:291
+await in f
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:185  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/user/profile net::ERR_ABORTED 401 (Unauthorized)
+(anonymous) @ index-BcPjQLZ_.js:185
+(anonymous) @ index-BcPjQLZ_.js:185
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/ohlc/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:10  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/ohlc/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+(anonymous) @ index-BcPjQLZ_.js:10
+await in (anonymous)
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/payments/plans' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/payments/plans net::ERR_FAILED 401 (Unauthorized)
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/ohlc?symbol=BTCUSDT&interval=1d&limit=104' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:206  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/ohlc?symbol=BTCUSDT&interval=1d&limit=104 net::ERR_FAILED 401 (Unauthorized)
+R @ index-BcPjQLZ_.js:206
+F @ index-BcPjQLZ_.js:206
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/signals/alerts?ticker=BTCUSDT&timeframe=1h' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:206  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/signals/alerts?ticker=BTCUSDT&timeframe=1h net::ERR_FAILED 401 (Unauthorized)
+R @ index-BcPjQLZ_.js:206
+F @ index-BcPjQLZ_.js:206
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:206  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+R @ index-BcPjQLZ_.js:206
+F @ index-BcPjQLZ_.js:206
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:206 Error loading chart data: Error: All API calls failed
+    at F (index-BcPjQLZ_.js:206:7625)
+F @ index-BcPjQLZ_.js:206
+await in F
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+index-BcPjQLZ_.js:291  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+F @ index-BcPjQLZ_.js:291
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:291 Error fetching current price: TypeError: Failed to fetch
+    at F (index-BcPjQLZ_.js:291:4072)
+    at index-BcPjQLZ_.js:291:5645
+    at ol (react-vendor-DRd396Ms.js:32:24177)
+    at Xt (react-vendor-DRd396Ms.js:32:42061)
+    at Ii (react-vendor-DRd396Ms.js:32:36399)
+    at pt (react-vendor-DRd396Ms.js:30:3258)
+    at id (react-vendor-DRd396Ms.js:32:40969)
+    at yt (react-vendor-DRd396Ms.js:32:39976)
+    at Ua (react-vendor-DRd396Ms.js:32:35511)
+    at E (react-vendor-DRd396Ms.js:17:1562)
+F @ index-BcPjQLZ_.js:291
+await in F
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:185  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/market/price/BTCUSDT net::ERR_ABORTED 401 (Unauthorized)
+(anonymous) @ index-BcPjQLZ_.js:185
+(anonymous) @ index-BcPjQLZ_.js:185
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:206 No chart container ref available
+T @ index-BcPjQLZ_.js:206
+(anonymous) @ index-BcPjQLZ_.js:206
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+(anonymous) @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:206 No chart container ref available
+T @ index-BcPjQLZ_.js:206
+(anonymous) @ index-BcPjQLZ_.js:206
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+(anonymous) @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ETHUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/SOLUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/BTCUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+(index):1 Access to fetch at 'https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT' from origin 'https://dev-crypto-kings-frontend.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.Understand this error
+requests.js:1  GET https://crypto-kings-backend-git-develop-cameron-osbornes-projects.vercel.app/api/public/market/price/ADAUSDT net::ERR_FAILED 401 (Unauthorized)
+s.fetch @ requests.js:1
+(anonymous) @ traffic.js:1
+fetch @ traffic.js:1
+queryFn @ index-BcPjQLZ_.js:291
+i @ index-BcPjQLZ_.js:10
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.then
+(anonymous) @ index-BcPjQLZ_.js:10
+Promise.catch
+g @ index-BcPjQLZ_.js:10
+start @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+It @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+setInterval
+setInterval @ index-BcPjQLZ_.js:10
+setInterval @ index-BcPjQLZ_.js:10
+Ls @ index-BcPjQLZ_.js:10
+Ms @ index-BcPjQLZ_.js:10
+onQueryUpdate @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+batch @ index-BcPjQLZ_.js:10
+Te @ index-BcPjQLZ_.js:10
+fetch @ index-BcPjQLZ_.js:10
+await in fetch
+It @ index-BcPjQLZ_.js:10
+onSubscribe @ index-BcPjQLZ_.js:10
+subscribe @ index-BcPjQLZ_.js:10
+(anonymous) @ index-BcPjQLZ_.js:10
+oa @ react-vendor-DRd396Ms.js:30
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:291  GET https://s3.tradingview.com/tv.js net::ERR_CONNECTION_TIMED_OUT
+(anonymous) @ index-BcPjQLZ_.js:291
+Cc @ index-BcPjQLZ_.js:291
+N @ index-BcPjQLZ_.js:291
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:291 Failed to load tv.js - check Network tab for https://s3.tradingview.com/tv.js
+a.onerror @ index-BcPjQLZ_.js:291
+script
+(anonymous) @ index-BcPjQLZ_.js:291
+Cc @ index-BcPjQLZ_.js:291
+N @ index-BcPjQLZ_.js:291
+(anonymous) @ index-BcPjQLZ_.js:291
+ol @ react-vendor-DRd396Ms.js:32
+Xt @ react-vendor-DRd396Ms.js:32
+Ii @ react-vendor-DRd396Ms.js:32
+pt @ react-vendor-DRd396Ms.js:30
+id @ react-vendor-DRd396Ms.js:32
+yt @ react-vendor-DRd396Ms.js:32
+Ua @ react-vendor-DRd396Ms.js:32
+E @ react-vendor-DRd396Ms.js:17
+un @ react-vendor-DRd396Ms.js:17Understand this error
+index-BcPjQLZ_.js:291 Failed to initialize TradingView chart: Error: Failed to load TradingView script from CDN
+    at a.onerror (index-BcPjQLZ_.js:291:3211)

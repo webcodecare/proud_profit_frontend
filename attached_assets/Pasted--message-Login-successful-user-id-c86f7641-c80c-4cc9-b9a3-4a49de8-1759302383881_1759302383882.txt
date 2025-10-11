@@ -1,0 +1,70 @@
+{
+    "message": "Login successful",
+    "user": {
+        "id": "c86f7641-c80c-4cc9-b9a3-4a49de87a83f",
+        "email": "admin@proudprofits.com",
+        "hashed_password": "$2b$10$PIOQp219ccwYkLusy6K4HOARHKMiOU0ntD63kvqJHgW7C5VvxxITC",
+        "role": "admin",
+        "first_name": "Admin",
+        "last_name": "User",
+        "is_active": true,
+        "stripe_customer_id": null,
+        "stripe_subscription_id": null,
+        "subscription_tier": "elite",
+        "subscription_status": "active",
+        "subscription_ends_at": null,
+        "last_login_at": null,
+        "created_at": "2025-09-29T21:03:42.424317",
+        "updated_at": "2025-09-29T21:04:49.174533"
+    },
+    "session": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImtpZCI6Ink3ZVhoMW5ReXNvY2c3bCsiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2xjcXdrenV3amlkc253cW5pa2RuLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJjODZmNzY0MS1jODBjLTRjYzktYjlhMy00YTQ5ZGU4N2E4M2YiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzU5MzA2MDEyLCJpYXQiOjE3NTkzMDI0MTIsImVtYWlsIjoiYWRtaW5AcHJvdWRwcm9maXRzLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcnN0X25hbWUiOiJBZG1pbiIsImxhc3RfbmFtZSI6IlVzZXIifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTc1OTMwMjQxMn1dLCJzZXNzaW9uX2lkIjoiZTUzYTBmNTQtNjMzYi00YjY2LWE4MWYtNzQxOTUyN2E3YWQ5IiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.CiwfFyJAV1DFlBZeYtXDr6uDJ1N6ITn7GADnTitsVOY",
+        "token_type": "bearer",
+        "expires_in": 3600,
+        "expires_at": 1759306012,
+        "refresh_token": "umaaaadkjmvu",
+        "user": {
+            "id": "c86f7641-c80c-4cc9-b9a3-4a49de87a83f",
+            "aud": "authenticated",
+            "role": "authenticated",
+            "email": "admin@proudprofits.com",
+            "email_confirmed_at": "2025-09-27T11:27:23.157485Z",
+            "phone": "",
+            "confirmed_at": "2025-09-27T11:27:23.157485Z",
+            "last_sign_in_at": "2025-10-01T07:06:52.750256597Z",
+            "app_metadata": {
+                "provider": "email",
+                "providers": [
+                    "email"
+                ]
+            },
+            "user_metadata": {
+                "email_verified": true,
+                "first_name": "Admin",
+                "last_name": "User"
+            },
+            "identities": [
+                {
+                    "identity_id": "26495ca5-114e-481d-8262-ab42f93389bd",
+                    "id": "c86f7641-c80c-4cc9-b9a3-4a49de87a83f",
+                    "user_id": "c86f7641-c80c-4cc9-b9a3-4a49de87a83f",
+                    "identity_data": {
+                        "email": "admin@proudprofits.com",
+                        "email_verified": false,
+                        "phone_verified": false,
+                        "sub": "c86f7641-c80c-4cc9-b9a3-4a49de87a83f"
+                    },
+                    "provider": "email",
+                    "last_sign_in_at": "2025-09-27T11:27:23.151932Z",
+                    "created_at": "2025-09-27T11:27:23.151983Z",
+                    "updated_at": "2025-09-27T11:27:23.151983Z",
+                    "email": "admin@proudprofits.com"
+                }
+            ],
+            "created_at": "2025-09-27T11:27:23.149136Z",
+            "updated_at": "2025-10-01T07:06:52.754182Z",
+            "is_anonymous": false
+        },
+        "weak_password": null
+    }
+}
