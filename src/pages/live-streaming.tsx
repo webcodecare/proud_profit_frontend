@@ -45,7 +45,7 @@ interface TickerPrice {
 
 export default function LiveStreamingPage() {
   const [isConnected, setIsConnected] = useState(false);
-  const [isStreaming, setIsStreaming] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(true);
   const [liveSignals, setLiveSignals] = useState<LiveSignal[]>([]);
   const [tickerPrices, setTickerPrices] = useState<Record<string, TickerPrice>>({});
   const [activeChannel, setActiveChannel] = useState<any>(null);
@@ -105,6 +105,16 @@ export default function LiveStreamingPage() {
       setLiveSignals(recentSignals);
     }
   }, [recentSignals]);
+
+    useEffect(() => {
+    // make sure streaming flag is true and we have an initial fetch
+    setIsStreaming(true);
+    refetchSignals();
+    if (!(window as any).streamStart) {
+      (window as any).streamStart = Date.now();
+    }
+    // no cleanup needed here
+  }, []);
 
   // Setup Supabase Realtime subscription
   useEffect(() => {

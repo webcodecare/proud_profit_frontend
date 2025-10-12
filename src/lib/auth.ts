@@ -28,6 +28,7 @@ export interface UserSettings {
   notificationEmail: boolean;
   notificationSms: boolean;
   notificationPush: boolean;
+  notificationTelegram: boolean;
   theme: "light" | "dark";
   language: string;
 }
@@ -104,6 +105,8 @@ export const authAPI = {
     });
   },
 
+  
+
   async updatePassword(
     token: string,
     currentPassword: string,
@@ -121,6 +124,8 @@ export const authAPI = {
     });
   },
 
+
+  
   async updateEmail(
     token: string,
     currentPassword: string,

@@ -283,7 +283,7 @@ export default function AdminAnalytics() {
             </Select>
           </div>
         </Header>
-        MAMA
+
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6">
           {/* Key Metrics Overview */}

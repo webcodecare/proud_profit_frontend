@@ -1,13 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useQuery } from "@tanstack/react-query";
 import { TrendingUp, TrendingDown, Activity } from "lucide-react";
 
 interface TradingViewWidgetProps {
   symbol?: string;
-  theme?: 'light' | 'dark';
+  theme?: "light" | "dark";
   height?: number;
   interval?: string;
   showSignals?: boolean;
@@ -16,7 +22,7 @@ interface TradingViewWidgetProps {
 interface Signal {
   id: string;
   ticker: string;
-  signalType: 'buy' | 'sell';
+  signalType: "buy" | "sell";
   price: number;
   timestamp: string;
   timeframe: string;
@@ -41,29 +47,51 @@ declare global {
   }
 }
 
-export default function TradingViewWidget({ 
-  symbol = 'BINANCE:BTCUSDT', 
-  theme = 'dark',
+export default function TradingViewWidget({
+  symbol = "BINANCE:BTCUSDT",
+  theme = "dark",
   height = 600,
-  interval = '1D',
-  showSignals = true
+  interval = "1W",
+  showSignals = true,
 }: TradingViewWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
-  const [selectedTimeframe, setSelectedTimeframe] = useState(interval);
+
+  // Helpers to map between parent interval (TradingView format) and select values
+  const propToSelect = (iv?: string) => {
+    if (!iv) return "1W";
+    if (/^\d+$/.test(iv)) return iv; // numeric intervals like 30,60,240
+    if (iv === "D") return "1D";
+    if (iv === "W") return "1W";
+    if (iv === "M") return "1M";
+    return iv;
+  };
+
+  const selectToEmbed = (sel?: string) => {
+    if (!sel) return "W";
+    if (/^\d+$/.test(sel)) return sel; // numeric stays numeric
+    if (sel === "1D") return "D";
+    if (sel === "1W") return "W";
+    if (sel === "1M") return "M";
+    return sel;
+  };
+
+  const [selectedTimeframe, setSelectedTimeframe] = useState(
+    propToSelect(interval)
+  );
 
   // Extract ticker from symbol (BINANCE:BTCUSDT -> BTCUSDT)
-  const ticker = symbol.includes(':') ? symbol.split(':')[1] : symbol;
-  
+  const ticker = symbol.includes(":") ? symbol.split(":")[1] : symbol;
+
   // Supported timeframes for TradingView (admin-controlled)
   const supportedTimeframes = [
-    { value: '30', label: '30 Minutes' },
-    { value: '60', label: '1 Hour' },
-    { value: '240', label: '4 Hours' },
-    { value: '480', label: '8 Hours' },
-    { value: '720', label: '12 Hours' },
-    { value: '1D', label: '1 Day' },
-    { value: '1W', label: '1 Week' },
-    { value: '1M', label: '1 Month' }
+    { value: "30", label: "30 Minutes" },
+    { value: "60", label: "1 Hour" },
+    { value: "240", label: "4 Hours" },
+    { value: "480", label: "8 Hours" },
+    { value: "720", label: "12 Hours" },
+    { value: "1D", label: "1D" },
+    { value: "1W", label: "1W" },
+    { value: "1M", label: "1 Month" },
   ];
 
   // Fetch current market data with optimized polling
@@ -89,47 +117,49 @@ export default function TradingViewWidget({
   // Load TradingView widget
   useEffect(() => {
     if (!widgetRef.current) return;
-    
+
     const container = widgetRef.current;
-    container.innerHTML = ''; // Clear previous widget
-    
+    container.innerHTML = ""; // Clear previous widget
+
     // Create widget container
-    const widgetContainer = document.createElement('div');
-    widgetContainer.className = 'tradingview-widget-container__widget';
+    const widgetContainer = document.createElement("div");
+    widgetContainer.className = "tradingview-widget-container__widget";
     container.appendChild(widgetContainer);
-    
-    // Create script element with widget configuration
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+
+    // Build embed config using embed-compatible interval
+    const embedInterval = selectToEmbed(selectedTimeframe);
+    const config = {
+      autosize: false,
+      symbol: symbol,
+      interval: embedInterval,
+      timezone: "Etc/UTC",
+      theme: theme,
+      style: "1",
+      locale: "en",
+      enable_publishing: false,
+      withdateranges: true,
+      range: "YTD",
+      hide_side_toolbar: false,
+      allow_symbol_change: false,
+      save_image: false,
+      calendar: false,
+      support_host: "https://www.tradingview.com",
+      width: "100%",
+      height: height,
+    };
+
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
     script.async = true;
-    script.innerHTML = `
-      {
-        "autosize": false,
-        "symbol": "${symbol}",
-        "interval": "${selectedTimeframe}",
-        "timezone": "Etc/UTC",
-        "theme": "${theme}",
-        "style": "1",
-        "locale": "en",
-        "enable_publishing": false,
-        "withdateranges": true,
-        "range": "YTD",
-        "hide_side_toolbar": false,
-        "allow_symbol_change": false,
-        "save_image": false,
-        "calendar": false,
-        "support_host": "https://www.tradingview.com",
-        "width": "100%",
-        "height": ${height}
-      }
-    `;
-    
+    script.innerHTML = JSON.stringify(config);
+
     container.appendChild(script);
-    
+
     return () => {
       if (container) {
-        container.innerHTML = '';
+        container.innerHTML = "";
       }
     };
   }, [symbol, selectedTimeframe, theme, height]);
@@ -144,12 +174,17 @@ export default function TradingViewWidget({
       {/* Chart Header with Live Price */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-lg font-semibold text-foreground">{ticker} Chart</h3>
+          <h3 className="text-lg font-semibold text-foreground">
+            {ticker} Chart
+          </h3>
           <div className="flex items-center space-x-4 text-sm text-muted-foreground">
             <span>Price: ${marketPrice.toFixed(2)}</span>
             {marketPrice > 0 && (
-              <span className={priceChange >= 0 ? 'text-green-400' : 'text-red-400'}>
-                {priceChange >= 0 ? '+' : ''}{priceChange.toFixed(2)} ({priceChangePercent.toFixed(2)}%)
+              <span
+                className={priceChange >= 0 ? "text-green-400" : "text-red-400"}
+              >
+                {priceChange >= 0 ? "+" : ""}
+                {priceChange.toFixed(2)} ({priceChangePercent.toFixed(2)}%)
               </span>
             )}
           </div>
@@ -160,9 +195,7 @@ export default function TradingViewWidget({
             Live
           </Badge>
           {showSignals && (
-            <Badge variant="default">
-              {signals.length} Signals
-            </Badge>
+            <Badge variant="default">{signals.length} Signals</Badge>
           )}
         </div>
       </div>
@@ -171,10 +204,20 @@ export default function TradingViewWidget({
       <Card className="bg-card border-border mb-4">
         <CardContent className="p-4">
           <div className="flex items-center space-x-4">
-            <label className="text-sm font-medium text-foreground">Timeframe:</label>
-            <Select value={selectedTimeframe} onValueChange={handleTimeframeChange}>
+            <label className="text-sm font-medium text-foreground">
+              Timeframe:
+            </label>
+            <Select
+              defaultValue="1W"
+              value={selectedTimeframe}
+              onValueChange={handleTimeframeChange}
+            >
               <SelectTrigger className="w-48">
-                <SelectValue />
+                <SelectValue>
+                  {supportedTimeframes.find(
+                    (tf) => tf.value === selectedTimeframe
+                  )?.label ?? selectedTimeframe}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 {supportedTimeframes.map((tf) => (
@@ -194,8 +237,14 @@ export default function TradingViewWidget({
           <div className="tradingview-widget-container">
             <div ref={widgetRef} style={{ height: `${height}px` }} />
             <div className="tradingview-widget-copyright">
-              <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-                <span className="text-xs text-muted-foreground">Track all markets on TradingView</span>
+              <a
+                href="https://www.tradingview.com/"
+                rel="noopener nofollow"
+                target="_blank"
+              >
+                <span className="text-xs text-muted-foreground">
+                  Track all markets on TradingView
+                </span>
               </a>
             </div>
           </div>
@@ -214,18 +263,29 @@ export default function TradingViewWidget({
           <CardContent>
             <div className="space-y-2">
               {signals.slice(0, 5).map((signal: Signal) => (
-                <div key={signal.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
+                <div
+                  key={signal.id}
+                  className="flex items-center justify-between p-3 border border-border rounded-lg"
+                >
                   <div className="flex items-center space-x-3">
-                    {signal.signalType === 'buy' ? (
+                    {signal.signalType === "buy" ? (
                       <TrendingUp className="w-4 h-4 text-green-400" />
                     ) : (
                       <TrendingDown className="w-4 h-4 text-red-400" />
                     )}
-                    <Badge variant={signal.signalType === 'buy' ? 'default' : 'destructive'}>
-                      {signal.signalType?.toUpperCase() || 'SIGNAL'}
+                    <Badge
+                      variant={
+                        signal.signalType === "buy" ? "default" : "destructive"
+                      }
+                    >
+                      {signal.signalType?.toUpperCase() || "SIGNAL"}
                     </Badge>
-                    <span className="font-medium text-foreground">${signal.price.toFixed(2)}</span>
-                    <span className="text-xs text-muted-foreground">{signal.timeframe}</span>
+                    <span className="font-medium text-foreground">
+                      ${signal.price.toFixed(2)}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {signal.timeframe}
+                    </span>
                   </div>
                   <span className="text-sm text-muted-foreground">
                     {new Date(signal.timestamp).toLocaleString()}

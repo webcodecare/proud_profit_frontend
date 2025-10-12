@@ -69,31 +69,32 @@ export default function HeatmapChart({
     ctx.fillStyle = 'hsl(var(--muted-foreground))';
     ctx.font = '10px system-ui';
 
-    for (let year = 0; year < years; year++) {
-      for (let week = 0; week < weeks; week++) {
-        // Use real data if available, otherwise generate realistic sample
-        let deviation: number;
-        if (heatmapData && heatmapData.length > 0) {
+    // Only render if real data is available
+    if (heatmapData && heatmapData.length > 0) {
+      for (let year = 0; year < years; year++) {
+        for (let week = 0; week < weeks; week++) {
+          // Use real data from database only
           const dataPoint = heatmapData[Math.min(week, heatmapData.length - 1)];
-          deviation = parseFloat(dataPoint.deviationPercent);
-        } else {
-          // Generate realistic crypto deviation pattern
-          deviation = (Math.sin(week * 0.12) * 30) + 
-                     (Math.sin(year * 0.8) * 15) + 
-                     (Math.random() * 10 - 5);
+          const deviation = parseFloat(dataPoint.deviationPercent);
+
+          const x = 20 + week * cellWidth;
+          const y = 40 + year * cellHeight;
+
+          ctx.fillStyle = getColor(deviation);
+          ctx.fillRect(x, y, cellWidth - 1, cellHeight - 1);
+
+          // Add subtle border
+          ctx.strokeStyle = 'hsl(var(--border))';
+          ctx.lineWidth = 0.5;
+          ctx.strokeRect(x, y, cellWidth - 1, cellHeight - 1);
         }
-
-        const x = 20 + week * cellWidth;
-        const y = 40 + year * cellHeight;
-
-        ctx.fillStyle = getColor(deviation);
-        ctx.fillRect(x, y, cellWidth - 1, cellHeight - 1);
-
-        // Add subtle border
-        ctx.strokeStyle = 'hsl(var(--border))';
-        ctx.lineWidth = 0.5;
-        ctx.strokeRect(x, y, cellWidth - 1, cellHeight - 1);
       }
+    } else {
+      // Show "No data available" message
+      ctx.fillStyle = 'hsl(var(--muted-foreground))';
+      ctx.font = '14px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText('No heatmap data available', canvas.width / 2, canvas.height / 2);
     }
 
     // Add year labels

@@ -31,26 +31,47 @@ export default function NotificationSettings({ settings, onUpdate, isLoading }: 
   
   const [notificationData, setNotificationData] = useState({
     // Channel toggles
-    notificationEmail: settings?.notificationEmail ?? true,
-    notificationSms: settings?.notificationSms ?? false,
-    notificationPush: settings?.notificationPush ?? true,
-    notificationTelegram: settings?.notificationTelegram ?? false,
+    notificationEmail: settings?.notification_email ?? settings?.notificationEmail ?? true,
+    notificationSms: settings?.notification_sms ?? settings?.notificationSms ?? false,
+    notificationPush: settings?.notification_push ?? settings?.notificationPush ?? true,
+    notificationTelegram: settings?.notification_telegram ?? settings?.notificationTelegram ?? false,
     
     // Contact information
-    emailAddress: settings?.emailAddress || '',
-    phoneNumber: settings?.phoneNumber || '',
-    telegramChatId: settings?.telegramChatId || '',
+    emailAddress: settings?.email_address ?? settings?.emailAddress ?? '',
+    phoneNumber: settings?.phone_number ?? settings?.phoneNumber ?? '',
+    telegramChatId: settings?.telegram_chat_id ?? settings?.telegramChatId ?? '',
     
     // Alert type preferences
-    priceAlerts: settings?.priceAlerts ?? true,
-    volumeAlerts: settings?.volumeAlerts ?? false,
-    newsAlerts: settings?.newsAlerts ?? true,
-    technicalAlerts: settings?.technicalAlerts ?? true,
-    whaleAlerts: settings?.whaleAlerts ?? false,
+    priceAlerts: settings?.price_alerts ?? settings?.priceAlerts ?? true,
+    volumeAlerts: settings?.volume_alerts ?? settings?.volumeAlerts ?? false,
+    newsAlerts: settings?.news_alerts ?? settings?.newsAlerts ?? true,
+    technicalAlerts: settings?.technical_alerts ?? settings?.technicalAlerts ?? true,
+    whaleAlerts: settings?.whale_alerts ?? settings?.whaleAlerts ?? false,
     
     // Push settings
-    pushEnabled: settings?.pushEnabled ?? false,
+    pushEnabled: settings?.push_enabled ?? settings?.pushEnabled ?? false,
   });
+
+  // Update local state when settings change from Supabase
+  useEffect(() => {
+    if (settings) {
+      setNotificationData({
+        notificationEmail: settings?.notification_email ?? settings?.notificationEmail ?? true,
+        notificationSms: settings?.notification_sms ?? settings?.notificationSms ?? false,
+        notificationPush: settings?.notification_push ?? settings?.notificationPush ?? true,
+        notificationTelegram: settings?.notification_telegram ?? settings?.notificationTelegram ?? false,
+        emailAddress: settings?.email_address ?? settings?.emailAddress ?? '',
+        phoneNumber: settings?.phone_number ?? settings?.phoneNumber ?? '',
+        telegramChatId: settings?.telegram_chat_id ?? settings?.telegramChatId ?? '',
+        priceAlerts: settings?.price_alerts ?? settings?.priceAlerts ?? true,
+        volumeAlerts: settings?.volume_alerts ?? settings?.volumeAlerts ?? false,
+        newsAlerts: settings?.news_alerts ?? settings?.newsAlerts ?? true,
+        technicalAlerts: settings?.technical_alerts ?? settings?.technicalAlerts ?? true,
+        whaleAlerts: settings?.whale_alerts ?? settings?.whaleAlerts ?? false,
+        pushEnabled: settings?.push_enabled ?? settings?.pushEnabled ?? false,
+      });
+    }
+  }, [settings]);
 
   // Check push notification support
   useEffect(() => {

@@ -91,55 +91,21 @@ export default function BitcoinAnalytics() {
     retry: 2,
   });
 
-  // Fetch algorithm performance data
-  const { data: algorithmsData, isLoading: algorithmsLoading } = useQuery({
+  // Fetch algorithm performance data - fully dynamic from database
+  const { data: algorithmsData, isLoading: algorithmsLoading, error: algorithmsError } = useQuery({
     queryKey: ["/api/public/analytics/algorithms"],
     queryFn: async () => {
       const response = await fetch(
         buildApiUrl("/api/public/analytics/algorithms")
       );
       if (!response.ok) {
-        // Return fallback data if API doesn't exist yet
-        return {
-          algorithms: [
-            {
-              name: "Fourier Transform",
-              accuracy: "87.3%",
-              status: "Active",
-            },
-            {
-              name: "Elliott Wave",
-              accuracy: "82.1%",
-              status: "Active",
-            },
-            {
-              name: "Gann Analysis",
-              accuracy: "79.6%",
-              status: "Active",
-            },
-            {
-              name: "Harmonic Patterns",
-              accuracy: "85.4%",
-              status: "Active",
-            },
-            {
-              name: "Fractal Dimension",
-              accuracy: "88.7%",
-              status: "Active",
-            },
-            {
-              name: "Entropy Analysis",
-              accuracy: "83.9%",
-              status: "Active",
-            },
-          ],
-        };
+        throw new Error("Failed to fetch algorithms data");
       }
       return response.json();
     },
     staleTime: 2 * 60 * 1000, // 2 minutes
     gcTime: 5 * 60 * 1000, // 5 minutes
-    retry: 1,
+    retry: 2,
   });
 
   const features = [
@@ -177,7 +143,7 @@ export default function BitcoinAnalytics() {
     },
   ];
 
-  // Enhanced metrics with better data handling
+  // Fully dynamic metrics from database - no static fallbacks
   const metrics = [
     {
       label: "Current 200W SMA Deviation",
@@ -186,8 +152,8 @@ export default function BitcoinAnalytics() {
         (heatmapData &&
           Array.isArray(heatmapData) &&
           heatmapData[0]?.deviationPercent) ||
-        "+24.7%",
-      trend: (heatmapData?.trend || "up") as "up" | "down" | "neutral",
+        (heatmapLoading ? "Loading..." : "--"),
+      trend: (heatmapData?.trend || "neutral") as "up" | "down" | "neutral",
       color: "text-green-400",
     },
     {
@@ -197,19 +163,19 @@ export default function BitcoinAnalytics() {
         (cycleData &&
           Array.isArray(cycleData) &&
           cycleData[0]?.cycleMomentum) ||
-        "0.73",
-      trend: (cycleData?.trend || "up") as "up" | "down" | "neutral",
+        (cycleLoading ? "Loading..." : "--"),
+      trend: (cycleData?.trend || "neutral") as "up" | "down" | "neutral",
       color: "text-blue-400",
     },
     {
       label: "Forecast Confidence",
-      value: analyticsData?.forecastConfidence || "84.2%",
-      trend: "up" as const,
+      value: analyticsData?.forecastConfidence || (analyticsLoading ? "Loading..." : "--"),
+      trend: (analyticsData?.trend || "neutral") as "up" | "down" | "neutral",
       color: "text-purple-400",
     },
     {
       label: "Halving Progress",
-      value: analyticsData?.halvingProgress || "67%",
+      value: analyticsData?.halvingProgress || (analyticsLoading ? "Loading..." : "--"),
       trend: "neutral" as const,
       color: "text-orange-400",
     },
@@ -409,58 +375,10 @@ export default function BitcoinAnalytics() {
                 </Card>
               </TabsContent>
 
-              <TabsContent value="forecast" className="space-y-4 sm:space-y-6">
-                <AdvancedForecastChart ticker="BTCUSDT" />
-
-                <Card className="p-3 sm:p-4">
-                  <CardHeader className="p-0 pb-3">
-                    <CardTitle className="text-sm sm:text-base">
-                      Forecasting Algorithms
-                      {algorithmsLoading && (
-                        <Loader2 className="h-4 w-4 animate-spin ml-2 inline" />
-                      )}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <AlgorithmGrid
-                      algorithms={
-                        algorithmsData?.algorithms || [
-                          {
-                            name: "Fourier Transform",
-                            accuracy: "87.3%",
-                            status: "Active",
-                          },
-                          {
-                            name: "Elliott Wave",
-                            accuracy: "82.1%",
-                            status: "Active",
-                          },
-                          {
-                            name: "Gann Analysis",
-                            accuracy: "79.6%",
-                            status: "Active",
-                          },
-                          {
-                            name: "Harmonic Patterns",
-                            accuracy: "85.4%",
-                            status: "Active",
-                          },
-                          {
-                            name: "Fractal Dimension",
-                            accuracy: "88.7%",
-                            status: "Active",
-                          },
-                          {
-                            name: "Entropy Analysis",
-                            accuracy: "83.9%",
-                            status: "Active",
-                          },
-                        ]
-                      }
-                    />
-                  </CardContent>
-                </Card>
+              <TabsContent value="forecast" className="space-y-6">
+                <AdvancedForecastChart ticker="BTC" />
               </TabsContent>
+
             </Tabs>
           </div>
         </div>

@@ -125,6 +125,13 @@ export function Sidebar(props: SidebarProps) {
               requiresSubscription: true,
             },
             {
+              title: "Signals",
+              href: "/signals",
+              icon: Activity,
+              requiredFeature: "tradingPlayground" as keyof FeatureAccess,
+              requiresSubscription: true,
+            },
+            {
               title: "Analytics",
               href: "/bitcoin-analytics",
               icon: Bitcoin,
@@ -201,12 +208,12 @@ export function Sidebar(props: SidebarProps) {
           icon: Activity,
           description: "Real-time data",
         },
-        {
-          title: "Historical Data",
-          href: "/historical-ohlc",
-          icon: BarChart,
-          description: "OHLC data",
-        },
+        // {
+        //   title: "Historical Data",
+        //   href: "/historical-ohlc",
+        //   icon: BarChart,
+        //   description: "OHLC data",
+        // },
       ],
     },
     {
@@ -223,12 +230,12 @@ export function Sidebar(props: SidebarProps) {
     {
       title: "Notifications & Alerts",
       items: [
-        {
-          title: "Alert System",
-          href: "/admin/alerts",
-          icon: Bell,
-          description: "System alerts",
-        },
+        // {
+        //   title: "Alert System",
+        //   href: "/admin/alerts",
+        //   icon: Bell,
+        //   description: "System alerts",
+        // },
         {
           title: "Webhooks",
           href: "/admin/webhooks",

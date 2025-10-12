@@ -53,6 +53,7 @@ const NotificationSetup = lazy(() => import("@/pages/notification-setup"));
 const Preferences = lazy(() => import("@/pages/preferences"));
 const TradingPlayground = lazy(() => import("@/pages/trading-playground"));
 const UpgradePage = lazy(() => import("@/pages/upgrade"));
+const Signals = lazy(() => import("@/pages/signals"));
 
 // Admin pages
 const AdminUsers = lazy(() => import("@/pages/admin/users"));
@@ -60,7 +61,9 @@ const AdminTickers = lazy(() => import("@/pages/admin/tickers"));
 const AdminSignals = lazy(() => import("@/pages/admin/signals"));
 const AdminAlerts = lazy(() => import("@/pages/admin/alerts"));
 const AdminWebhooks = lazy(() => import("@/pages/admin/webhooks"));
-const AdminNotifications = lazy(() => import("@/pages/admin/notifications"));
+const AdminNotifications = lazy(
+  () => import("@/pages/admin/NotificationManagement")
+);
 const AdminLogs = lazy(() => import("@/pages/admin/logs"));
 const AdminAnalytics = lazy(() => import("@/pages/admin/analytics"));
 const AdminIntegrations = lazy(() => import("@/pages/admin/integrations"));
@@ -85,6 +88,7 @@ const UserSubscriptionManagement = lazy(
   () => import("@/pages/user/SubscriptionManagement")
 );
 const UserNotifications = lazy(() => import("@/pages/UserNotifications"));
+const TradingViewWebhook = lazy(() => import("@/pages/webhook/tradingview"));
 
 // Loading component for better UX
 const LoadingScreen = () => (
@@ -101,6 +105,11 @@ function Router() {
       <Route path="/demo">
         <Suspense fallback={<LoadingScreen />}>
           <Demo />
+        </Suspense>
+      </Route>
+      <Route path="/webhook/tradingview">
+        <Suspense fallback={<LoadingScreen />}>
+          <TradingViewWebhook />
         </Suspense>
       </Route>
       <Route path="/auth" component={Auth} />
@@ -336,6 +345,18 @@ function Router() {
             <Suspense fallback={<LoadingScreen />}>
               <TradingPlayground />
             </Suspense>
+          </AuthGuard>
+        )}
+      />
+      <Route
+        path="/signals"
+        component={() => (
+          <AuthGuard allowedRoles={["user"]}>
+            <SubscriptionGuard feature="tradingPlayground">
+              <Suspense fallback={<LoadingScreen />}>
+                <Signals />
+              </Suspense>
+            </SubscriptionGuard>
           </AuthGuard>
         )}
       />

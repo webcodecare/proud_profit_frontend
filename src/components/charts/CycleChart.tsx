@@ -86,16 +86,17 @@ export default function CycleChart({
     ctx.fillStyle = colors.background;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Generate comprehensive data
+    // Generate comprehensive data - only from real database data
     const generateData = () => {
       const ma2yData: DataPoint[] = [];
       const deviationData: DataPoint[] = [];
       const halvingEvents: HalvingEvent[] = [];
 
-      for (let i = 0; i < dataPoints; i++) {
-        const x = padding + i * dataSpacing;
-        
-        if (cycleData && Array.isArray(cycleData) && cycleData.length > 0) {
+      // Only use real data from database
+      if (cycleData && Array.isArray(cycleData) && cycleData.length > 0) {
+        for (let i = 0; i < dataPoints; i++) {
+          const x = padding + i * dataSpacing;
+          
           // Use real cycle data with proper scaling
           const dataIndex = Math.min(Math.floor(i / dataPoints * cycleData.length), cycleData.length - 1);
           const point = cycleData[dataIndex];
@@ -110,35 +111,16 @@ export default function CycleChart({
           const normalizedDev = Math.max(-0.5, Math.min(0.5, deviation));
           const deviationY = padding + chartHeight - ((normalizedDev + 0.5) * chartHeight);
           deviationData.push({ x, y: deviationY });
-        } else {
-          // Generate realistic 2-year cycle pattern
-          const time = (i / dataPoints) * Math.PI * 4; // 2 full cycles over 2 years
-          const halvingCycle = (i / dataPoints) * Math.PI * 2; // Halving cycle influence
-          
-          // 2-Year MA (smooth baseline trend)
-          const basePrice = 0.4 + Math.sin(time * 0.5) * 0.15; // Slow 2-year cycle
-          const ma2yY = padding + chartHeight - (basePrice * chartHeight);
-          ma2yData.push({ x, y: ma2yY });
-          
-          // Price deviation with realistic volatility and cycle patterns
-          let deviationValue = Math.sin(time) * 0.3; // Main cycle
-          deviationValue += Math.sin(halvingCycle * 2) * 0.15; // Halving influence
-          deviationValue += (Math.random() - 0.5) * 0.1; // Market noise
-          
-          // Clamp to realistic range
-          deviationValue = Math.max(-0.5, Math.min(0.5, deviationValue));
-          const deviationY = padding + chartHeight - ((deviationValue + 0.5) * chartHeight);
-          deviationData.push({ x, y: deviationY });
-        }
 
-        // Add halving events approximately every 4 years (1460 days)
-        if (i > 0 && i % 365 === 0) { // Every year for visibility
-          const halvingNumber = Math.floor(i / 365);
-          if (halvingNumber <= 2) { // Show last 2 halvings
-            halvingEvents.push({ 
-              x, 
-              label: `Halving ${halvingNumber + 1}` 
-            });
+          // Add halving events approximately every 4 years (1460 days)
+          if (i > 0 && i % 365 === 0) { // Every year for visibility
+            const halvingNumber = Math.floor(i / 365);
+            if (halvingNumber <= 2) { // Show last 2 halvings
+              halvingEvents.push({ 
+                x, 
+                label: `Halving ${halvingNumber + 1}` 
+              });
+            }
           }
         }
       }
@@ -147,6 +129,15 @@ export default function CycleChart({
     };
 
     const { ma2yData, deviationData, halvingEvents } = generateData();
+
+    // Show "No data" message if no real data is available
+    if (ma2yData.length === 0 && deviationData.length === 0) {
+      ctx.fillStyle = 'hsl(var(--muted-foreground))';
+      ctx.font = '14px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText('No cycle data available', canvas.width / 2, canvas.height / 2);
+      return;
+    }
 
     // Draw shaded bands for different zones
     const centerY = padding + chartHeight / 2;

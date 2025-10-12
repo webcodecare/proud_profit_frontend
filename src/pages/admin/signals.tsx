@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import NotificationInitializer from "@/components/NotificationInitializer";
+import { buildApiUrl } from '../../config/api';
+
 import {
   Table,
   TableBody,
@@ -85,13 +87,14 @@ export default function AdminSignals() {
   const { data: signalsResponse, isLoading: isLoadingSignals, error: signalsError } = useQuery({
     queryKey: ["/api/admin/signals"],
     queryFn: async () => {
-      const response = await fetch("/api/admin/signals?limit=100", {
+      const response = await fetch(buildApiUrl("/api/admin/signals?limit=100"), {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       if (!response.ok) throw new Error("Failed to fetch signals");
       return await response.json();
     },
   });
+  
 
   useEffect(() => {
     if (!supabase) return;
@@ -121,7 +124,7 @@ export default function AdminSignals() {
   const { data: tickers } = useQuery({
     queryKey: ["/api/admin/tickers"],
     queryFn: async () => {
-      const response = await fetch("/api/admin/tickers", {
+      const response = await fetch(buildApiUrl("/api/admin/tickers"), {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       if (!response.ok) throw new Error("Failed to fetch tickers");

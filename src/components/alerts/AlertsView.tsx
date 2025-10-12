@@ -1,18 +1,13 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import AlertsTable from './AlertsTable';
-import WorkingChart from '@/components/charts/WorkingChart';
 import { 
-  BarChart3, 
   Target, 
   Activity,
   TrendingUp,
-  Bell,
-  Maximize2,
-  Minimize2
+  Bell
 } from 'lucide-react';
 
 interface AlertSignal {
@@ -35,59 +30,16 @@ interface AlertsViewProps {
 
 export default function AlertsView({ className = '' }: AlertsViewProps) {
   const [selectedAlert, setSelectedAlert] = useState<AlertSignal | null>(null);
-  const [chartSymbol, setChartSymbol] = useState('BTCUSDT');
-  const [isChartExpanded, setIsChartExpanded] = useState(false);
   const { toast } = useToast();
 
   const handleAlertRowClick = useCallback((alert: AlertSignal) => {
     setSelectedAlert(alert);
-    setChartSymbol(alert.ticker);
     
-    // Highlight chart marker by dispatching custom event
-    window.dispatchEvent(new CustomEvent('highlight-chart-marker', {
-      detail: {
-        alertId: alert.id,
-        ticker: alert.ticker,
-        timestamp: alert.timestamp,
-        signalType: alert.signalType,
-        price: alert.price
-      }
-    }));
-
     toast({
       title: "Signal Selected",
-      description: `Highlighting ${alert.signalType.toUpperCase()} signal for ${alert.ticker} at $${alert.price}`,
+      description: `Selected ${alert.signalType.toUpperCase()} signal for ${alert.ticker} at $${alert.price}`,
     });
   }, [toast]);
-
-  const handleSymbolChange = useCallback((symbol: string) => {
-    setChartSymbol(symbol);
-    setSelectedAlert(null); // Clear selection when manually changing symbol
-  }, []);
-
-  const toggleChartExpanded = () => {
-    setIsChartExpanded(!isChartExpanded);
-  };
-
-  // Listen for chart marker click events (reverse direction)
-  useEffect(() => {
-    const handleChartMarkerClick = (event: CustomEvent) => {
-      const { alertId } = event.detail;
-      if (alertId && alertId !== selectedAlert?.id) {
-        // This would require fetching the alert by ID
-        // For now, we'll just show a toast
-        toast({
-          title: "Chart Marker Clicked",
-          description: "Signal details synchronized with chart",
-        });
-      }
-    };
-
-    window.addEventListener('chart-marker-click', handleChartMarkerClick as EventListener);
-    return () => {
-      window.removeEventListener('chart-marker-click', handleChartMarkerClick as EventListener);
-    };
-  }, [selectedAlert, toast]);
 
   return (
     <div className={`space-y-6 ${className}`}>
@@ -99,7 +51,7 @@ export default function AlertsView({ className = '' }: AlertsViewProps) {
             Alerts Dashboard
           </h1>
           <p className="text-muted-foreground">
-            Monitor trading signals and analyze chart patterns with interactive visualizations
+            Monitor trading signals and manage your alert preferences
           </p>
         </div>
         
@@ -116,63 +68,6 @@ export default function AlertsView({ className = '' }: AlertsViewProps) {
           </Badge>
         </div>
       </div>
-
-      {/* Chart Section */}
-      <Card className={isChartExpanded ? 'fixed inset-4 z-50' : ''}>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5" />
-              Chart Analysis
-              {selectedAlert && (
-                <Badge variant="default">
-                  {selectedAlert.signalType.toUpperCase()} Signal
-                </Badge>
-              )}
-            </CardTitle>
-            
-            <div className="flex items-center gap-2">
-              <Button onClick={toggleChartExpanded} size="sm" variant="outline">
-                {isChartExpanded ? (
-                  <Minimize2 className="h-4 w-4" />
-                ) : (
-                  <Maximize2 className="h-4 w-4" />
-                )}
-              </Button>
-            </div>
-          </div>
-          
-          {selectedAlert && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground">Signal Type</div>
-                <Badge variant={selectedAlert.signalType === 'buy' ? 'default' : 'destructive'}>
-                  {selectedAlert.signalType.toUpperCase()}
-                </Badge>
-              </div>
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground">Price</div>
-                <div className="font-mono font-semibold">${selectedAlert.price}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground">Timeframe</div>
-                <Badge variant="outline">{selectedAlert.timeframe}</Badge>
-              </div>
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground">Source</div>
-                <div className="text-sm">{selectedAlert.source}</div>
-              </div>
-            </div>
-          )}
-        </CardHeader>
-        
-        <CardContent>
-          <WorkingChart
-            symbol={chartSymbol}
-            height={isChartExpanded ? 600 : 400}
-          />
-        </CardContent>
-      </Card>
 
       {/* Alerts Table */}
       <AlertsTable

@@ -414,7 +414,7 @@ export default function Dashboard() {
                 )}
 
                 {/* Colorful Platform Status */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/30 dark:to-emerald-800/30 shadow-lg hover:shadow-xl transition-shadow">
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
@@ -433,28 +433,6 @@ export default function Dashboard() {
                       <div className="mt-2 flex items-center text-xs text-green-600 dark:text-green-400">
                         <Activity className="w-3 h-3 mr-1" />
                         Real-time pricing from Binance
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-900/30 dark:to-amber-800/30 shadow-lg hover:shadow-xl transition-shadow">
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-sm text-yellow-700 dark:text-yellow-300 font-medium">
-                            ⚡ Signals Source
-                          </p>
-                          <p className="text-2xl font-bold text-yellow-800 dark:text-yellow-100">
-                            TradingView
-                          </p>
-                        </div>
-                        <div className="p-2 rounded-lg bg-yellow-200 dark:bg-yellow-700">
-                          <Zap className="w-6 h-6 text-yellow-600 dark:text-yellow-300" />
-                        </div>
-                      </div>
-                      <div className="mt-2 flex items-center text-xs text-yellow-600 dark:text-yellow-400">
-                        <BarChart3 className="w-3 h-3 mr-1" />
-                        Multiple timeframe analysis
                       </div>
                     </CardContent>
                   </Card>

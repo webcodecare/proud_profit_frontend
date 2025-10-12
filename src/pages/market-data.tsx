@@ -8,6 +8,8 @@ import MarketWidget from "@/components/widgets/MarketWidget";
 import MarketStatsGrid from "@/components/market/MarketStatsGrid";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
+import { buildApiUrl } from "@/config/api";
+
 import { 
   DollarSign, 
   BarChart3,
@@ -33,7 +35,7 @@ function SimpleBitcoinChart() {
   const { data: currentPrice, isLoading } = useQuery<{ price: number; changePercent: number }>({
     queryKey: ["/api/public/market/price/BTCUSDT"],
     queryFn: async (): Promise<{ price: number; changePercent: number }> => {
-      const response = await fetch('/api/public/market/price/BTCUSDT');
+      const response = await fetch(buildApiUrl('/api/public/market/price/BTCUSDT'));
       if (!response.ok) throw new Error('Failed to fetch price');
       const data = await response.json();
       return data as { price: number; changePercent: number };
@@ -260,7 +262,7 @@ export default function MarketData() {
   const { data: marketStats, isLoading: marketStatsLoading } = useQuery<MarketStat[]>({
     queryKey: ["/api/market/overview"],
     queryFn: async (): Promise<MarketStat[]> => {
-      const response = await fetch('/api/market/overview');
+      const response = await fetch(buildApiUrl('/api/market/overview'));
       if (!response.ok) {
         throw new Error('Failed to fetch market overview');
       }

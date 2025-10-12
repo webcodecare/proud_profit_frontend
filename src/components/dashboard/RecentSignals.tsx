@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { formatDistanceToNow } from "date-fns";
+import SignalsTable, { SignalData } from "./SignalsTable";
 
 interface Signal {
   id: string;
@@ -8,6 +7,7 @@ interface Signal {
   signalType: "buy" | "sell";
   price: string;
   timestamp: string;
+  timeframe?: string;
   source?: string;
   note?: string;
 }
@@ -22,7 +22,7 @@ export default function RecentSignals({ signals, isLoading }: RecentSignalsProps
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Recent Signals</CardTitle>
+          <CardTitle>Signals</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -41,52 +41,24 @@ export default function RecentSignals({ signals, isLoading }: RecentSignalsProps
     );
   }
 
+  const tableData: SignalData[] = signals.map((signal) => ({
+    id: signal.id,
+    ticker: signal.ticker,
+    signalType: signal.signalType,
+    price: parseFloat(signal.price) || 0,
+    timeframe: signal.timeframe,
+    timestamp: signal.timestamp,
+    source: signal.source,
+    note: signal.note,
+  }));
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Recent Signals</CardTitle>
+        <CardTitle>Signals</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          {signals.length > 0 ? (
-            signals.slice(0, 5).map((signal) => (
-              <div
-                key={signal.id}
-                className="flex items-center justify-between border-b pb-4 last:border-b-0"
-              >
-                <div className="flex items-center space-x-3">
-                  <Badge
-                    variant={signal.signalType === "buy" ? "default" : "destructive"}
-                    className="text-xs"
-                  >
-                    {signal.signalType.toUpperCase()}
-                  </Badge>
-                  <div>
-                    <p className="font-medium text-sm">{signal.ticker}</p>
-                    <p className="text-xs text-muted-foreground">
-                      ${signal.price}
-                      {signal.source && ` • ${signal.source}`}
-                    </p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-muted-foreground">
-                    {formatDistanceToNow(new Date(signal.timestamp), {
-                      addSuffix: true,
-                    })}
-                  </p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-center py-8">
-              <p className="text-muted-foreground">No recent signals</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                Check back later for trading opportunities
-              </p>
-            </div>
-          )}
-        </div>
+        <SignalsTable signals={tableData} />
       </CardContent>
     </Card>
   );

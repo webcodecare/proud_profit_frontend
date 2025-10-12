@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
-import { tokenStorage } from '@/lib/auth';
 import { User, Upload, Shield, Eye, EyeOff, Loader2 } from 'lucide-react';
 
 interface ProfileSettingsProps {
@@ -91,11 +90,11 @@ export default function ProfileSettings({ user, onUpdate, isLoading }: ProfileSe
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // Validate file size (1MB max)
-    if (file.size > 1024 * 1024) {
+    // Validate file size (5MB max for Supabase)
+    if (file.size > 5 * 1024 * 1024) {
       toast({
         title: 'File Too Large',
-        description: 'Please upload an image smaller than 1MB.',
+        description: 'Please upload an image smaller than 5MB.',
         variant: 'destructive',
       });
       return;
@@ -111,8 +110,7 @@ export default function ProfileSettings({ user, onUpdate, isLoading }: ProfileSe
       return;
     }
 
-    const token = tokenStorage.get();
-    if (!token) {
+    if (!supabase || !user?.id) {
       toast({
         title: 'Upload Failed',
         description: 'Please log in to upload an avatar.',
@@ -124,39 +122,38 @@ export default function ProfileSettings({ user, onUpdate, isLoading }: ProfileSe
     try {
       setUploadingImage(true);
 
-      // Create FormData for file upload
-      const formData = new FormData();
-      formData.append('avatar', file);
+      // Generate unique filename
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${user.id}-${Date.now()}.${fileExt}`;
+      const filePath = `avatars/${fileName}`;
 
-      // Get API base URL
-      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
-      
-      // Upload to backend API
-      const response = await fetch(`${apiBaseUrl}/api/user/avatar`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      // Upload to Supabase Storage
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('user-uploads')
+        .upload(filePath, file, {
+          cacheControl: '3600',
+          upsert: true
+        });
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || errorData.error || 'Upload failed');
+      if (uploadError) {
+        console.error('Supabase upload error:', uploadError);
+        throw new Error(uploadError.message || 'Failed to upload image');
       }
 
-      const data = await response.json();
-      const avatarUrl = data.avatarUrl || data.avatar || data.url;
+      // Get public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('user-uploads')
+        .getPublicUrl(filePath);
 
-      if (!avatarUrl) {
-        throw new Error('No avatar URL returned from server');
+      if (!publicUrl) {
+        throw new Error('Failed to get image URL');
       }
 
       // Update profile data with new avatar URL
-      setProfileData(prev => ({ ...prev, avatar: avatarUrl }));
+      setProfileData(prev => ({ ...prev, avatar: publicUrl }));
 
       // Automatically save the new avatar to user profile
-      await onUpdate({ ...profileData, avatar: avatarUrl });
+      await onUpdate({ ...profileData, avatar: publicUrl });
 
       toast({
         title: 'Avatar Updated',
@@ -236,7 +233,7 @@ export default function ProfileSettings({ user, onUpdate, isLoading }: ProfileSe
                 )}
               </Button>
               <p className="text-sm text-muted-foreground mt-1">
-                JPG, GIF or PNG. 1MB max.
+                JPG, GIF or PNG. 5MB max.
               </p>
             </div>
           </div>
